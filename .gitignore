@@ -8,3 +8,4 @@ styles.css
 
 # Obsidian plugin runtime data (per-vault, not part of source)
 data.json
+*.zip
