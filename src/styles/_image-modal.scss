@@ -1,0 +1,39 @@
+// ============================================================
+// 图片全屏预览
+// ============================================================
+
+.st-img-modal-container {
+  background: transparent !important;
+  backdrop-filter: none !important;
+}
+.st-img-modal-container .modal-bg { display: none !important; }
+.st-img-modal-container .modal-close-button { display: none !important; }
+.st-img-modal-container .modal,
+.st-img-modal-container .modal.modal {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  width: auto !important;
+  max-width: 95vw !important;
+  height: auto !important;
+  max-height: 95vh !important;
+  overflow: visible !important;
+}
+.st-img-modal-container .modal-title { display: none !important; }
+.st-img-modal-container .modal-content {
+  padding: 0 !important;
+  background: transparent !important;
+  overflow: visible !important;
+}
+.st-img-modal-wrap { display: flex; align-items: center; justify-content: center; cursor: zoom-out; }
+.st-img-modal-img {
+  max-width: 95vw;
+  max-height: 95vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.6);
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}

@@ -1,0 +1,23 @@
+// ============================================================
+// 解析错误 / 通用按钮
+// ============================================================
+
+.st-error { padding: 20px; }
+.st-error-msg { color: var(--text-error); font-weight: 500; margin-bottom: 10px; }
+.st-error-raw {
+  background: var(--st-hover);
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 11px;
+  max-height: 200px;
+  overflow: auto;
+}
+.st-btn {
+  margin-top: 12px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.st-danger { background: var(--text-error); color: #fff; border: none; }
+.st-notice-undo { margin-left: 10px; border-radius: 6px; font-size: 12px; }

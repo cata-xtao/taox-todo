@@ -1,0 +1,110 @@
+@use "variables" as *;
+
+// ============================================================
+// 分组 / 子组
+// ============================================================
+
+.st-group {
+  border-radius: 10px;
+  padding: 4px 0;
+  transition: background .12s ease;
+}
+.st-group + .st-group { margin-top: 2px; }
+.st-group.st-drop-in {
+  background: rgba(var(--interactive-accent-rgb), .06);
+  box-shadow: inset 0 0 0 1.5px var(--interactive-accent);
+}
+.st-group-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: background .12s ease;
+  position: relative;
+}
+.st-group-head:hover { background: var(--st-hover); }
+.st-group-arrow {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text-faint);
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+.st-group-arrow svg { width: 14px; height: 14px; }
+.st-group-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--text-faint);
+}
+.st-group-dot.st-c-red { background: $c-red; }
+.st-group-dot.st-c-orange { background: $c-orange; }
+.st-group-dot.st-c-yellow { background: $c-yellow; }
+.st-group-dot.st-c-green { background: $c-green; }
+.st-group-dot.st-c-blue { background: $c-blue; }
+.st-group-dot.st-c-purple { background: $c-purple; }
+.st-group-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-normal);
+  letter-spacing: -.1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.st-group-count {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding: 1px 6px;
+  border-radius: 8px;
+  background: var(--st-hover);
+  flex-shrink: 0;
+}
+.st-group-actions {
+  display: flex;
+  gap: 2px;
+  opacity: 0;
+  transition: opacity .15s ease;
+  margin-left: auto;
+}
+.st-group-head:hover .st-group-actions { opacity: 1; }
+.st-group-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all .12s ease;
+}
+.st-group-action:hover { background: var(--st-hover); color: var(--text-normal); }
+.st-group-action svg { width: 13px; height: 13px; }
+
+.st-subgroup-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px 4px 30px;
+  margin-top: 2px;
+}
+.st-subgroup-name {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.st-subgroup-count {
+  font-size: 10px;
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+}

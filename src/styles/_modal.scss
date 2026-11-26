@@ -1,0 +1,160 @@
+@use "variables" as *;
+
+// ============================================================
+// 编辑模态框 / 表单 / 颜色与优先级选择 / 底部按钮
+// ============================================================
+
+.st-modal-el {
+  background: var(--st-bg-glass) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 16px !important;
+  border: 1px solid var(--st-border) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .2) !important;
+}
+.theme-dark .st-modal-el {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .6) !important;
+}
+.st-modal { padding: 24px !important; }
+.st-modal .st-row {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.st-modal .st-row-top { align-items: flex-start; }
+.st-row-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  min-width: 64px;
+  flex-shrink: 0;
+  font-weight: 500;
+}
+.st-row-label-inline { min-width: auto; margin-left: 4px; }
+.st-hint {
+  font-size: 11.5px;
+  color: var(--text-faint);
+  flex-shrink: 0;
+}
+
+.st-in {
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 8px;
+  background: var(--background-primary) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--text-normal);
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+  box-sizing: border-box;
+  box-shadow: none !important;
+}
+.st-in:hover { border-color: var(--text-muted) !important; }
+.st-in:focus {
+  border-color: var(--interactive-accent) !important;
+  box-shadow: 0 0 0 3px rgba(var(--interactive-accent-rgb), .15) !important;
+}
+.st-in:disabled { opacity: .5; cursor: not-allowed; background: var(--background-secondary) !important; }
+textarea.st-in { height: auto; padding: 10px 12px; resize: vertical; }
+.st-grow { flex: 1; min-width: 0; }
+.theme-dark input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(1); }
+
+.st-clear-date-wrap { display: inline-flex; align-items: center; }
+.st-clear-date-btn { width: 24px !important; height: 24px !important; border: none !important; }
+
+// 优先级选择
+.st-prio-picker { display: flex; gap: 6px; }
+.st-prio-btn {
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid var(--st-border-input);
+  background: transparent;
+  color: var(--text-muted);
+  transition: all .12s ease;
+  user-select: none;
+  box-sizing: border-box;
+}
+.st-prio-btn:hover {
+  background: var(--st-hover);
+  color: var(--text-normal);
+  border-color: var(--text-muted);
+}
+.st-prio-btn.is-on {
+  color: #fff;
+  border-color: transparent;
+  font-weight: 600;
+}
+.st-prio-btn-none.is-on { background: var(--text-muted); }
+.st-prio-btn-low.is-on  { background: $c-blue; }
+.st-prio-btn-med.is-on  { background: $c-orange; }
+.st-prio-btn-high.is-on { background: $c-red; }
+
+// 颜色选择
+.st-color-pick { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; padding-top: 4px; }
+.st-swatch {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .1) inset;
+  transition: transform .12s ease, border-color .12s ease;
+  flex-shrink: 0;
+}
+.st-swatch:hover { transform: scale(1.15); }
+.st-swatch.is-on { border-color: var(--text-normal); box-shadow: 0 0 0 2px var(--background-primary) inset; }
+.st-swatch-default { background: var(--background-modifier-border); }
+.st-swatch-red { background: $c-red; }
+.st-swatch-orange { background: $c-orange; }
+.st-swatch-yellow { background: $c-yellow; }
+.st-swatch-green { background: $c-green; }
+.st-swatch-blue { background: $c-blue; }
+.st-swatch-purple { background: $c-purple; }
+
+// 模态框底部
+.st-modal-foot {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+  align-items: center;
+}
+.st-foot-spacer { flex: 1; }
+.st-modal-foot button {
+  height: 36px;
+  padding: 0 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: none !important;
+  box-sizing: border-box;
+}
+.st-btn-del {
+  background: rgba($c-red, 0.1) !important;
+  color: $c-red !important;
+  border: 1px solid rgba($c-red, 0.4) !important;
+}
+.st-btn-del:hover { background: rgba($c-red, 0.2) !important; }
+
+.st-btn-cancel {
+  background: transparent !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  color: var(--text-normal) !important;
+}
+.st-btn-cancel:hover {
+  background: var(--st-hover) !important;
+  border-color: var(--text-muted) !important;
+}
+
+.st-btn-save {
+  background: var(--interactive-accent) !important;
+  color: var(--text-on-accent) !important;
+  border: 1px solid var(--interactive-accent) !important;
+  font-weight: 600 !important;
+}

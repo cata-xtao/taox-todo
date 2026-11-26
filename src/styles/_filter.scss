@@ -1,0 +1,147 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+// ============================================================
+// 筛选面板 / 下拉选择
+// ============================================================
+
+.st-filter-panel {
+  position: fixed;
+  z-index: $z-filter-panel;
+  width: 300px;
+  @include glass-panel(12px, 0 8px 32px rgba(0, 0, 0, .15));
+  padding: 14px 16px;
+  box-sizing: border-box;
+}
+.theme-dark .st-filter-panel { box-shadow: 0 8px 32px rgba(0, 0, 0, .5); }
+.st-fp-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--text-normal);
+}
+.st-fp-close {
+  cursor: pointer;
+  opacity: .55;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+}
+.st-fp-close:hover { opacity: 1; background: var(--st-hover); }
+.st-fp-close svg { width: 14px; height: 14px; }
+
+.st-fp-section { margin-bottom: 14px; }
+.st-fp-section:last-of-type { margin-bottom: 0; }
+.st-fp-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin-bottom: 8px;
+}
+.st-fp-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.st-fp-chip {
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  cursor: pointer;
+  border: 1px solid var(--st-border-input);
+  background: transparent;
+  color: var(--text-muted);
+  transition: all .12s ease;
+  user-select: none;
+  box-sizing: border-box;
+}
+.st-fp-chip:hover { border-color: var(--text-muted); color: var(--text-normal); }
+.st-fp-chip.is-on {
+  background: var(--interactive-accent);
+  border-color: var(--interactive-accent);
+  color: var(--text-on-accent);
+  font-weight: 600;
+}
+.st-fp-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  font-size: 13px;
+  color: var(--text-normal);
+  cursor: pointer;
+}
+.st-fp-row input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  accent-color: var(--interactive-accent);
+}
+.st-fp-row label { cursor: pointer; user-select: none; }
+.st-fp-foot {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--st-border);
+}
+.st-fp-foot button {
+  height: 30px;
+  padding: 0 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: none !important;
+  box-sizing: border-box;
+}
+.st-fp-reset {
+  background: transparent !important;
+  border: 1px solid var(--st-border-input) !important;
+  color: var(--text-muted) !important;
+}
+.st-fp-reset:hover {
+  background: var(--st-hover) !important;
+  color: var(--text-normal) !important;
+  border-color: var(--text-muted) !important;
+}
+.st-fp-apply {
+  background: var(--interactive-accent) !important;
+  color: var(--text-on-accent) !important;
+  border: 1px solid var(--interactive-accent) !important;
+  font-weight: 600 !important;
+}
+
+.st-select {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  background-color: transparent !important;
+  border: 1px solid var(--st-border-input) !important;
+  border-radius: 8px !important;
+  padding: 5px 26px 5px 11px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--text-normal) !important;
+  cursor: pointer !important;
+  outline: none !important;
+  height: 30px !important;
+  width: 100%;
+  box-shadow: none !important;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 8px center !important;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+.st-select:hover { border-color: var(--text-muted) !important; }
+.st-select:focus {
+  border-color: var(--interactive-accent) !important;
+  box-shadow: 0 0 0 3px rgba(var(--interactive-accent-rgb), .15) !important;
+}

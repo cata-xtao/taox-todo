@@ -1,0 +1,64 @@
+// ============================================================
+// 基座：代码块外壳重置 + 主题令牌（--st-* 运行时变量）
+// ============================================================
+
+div[data-code-block-lang="todo"],
+div[class*="block-language-todo"],
+div[class*="cm-lang-todo"] {
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 12px !important;
+  clip-path: inset(0 round 12px) !important;
+}
+div[class*="block-language-todo"]:hover,
+div[class*="cm-lang-todo"]:hover,
+div[data-code-block-lang="todo"]:hover {
+  box-shadow: none !important;
+  border-color: transparent !important;
+  background: transparent !important;
+  transform: none !important;
+}
+div[class*="block-language-todo"] .el-pre,
+div[class*="cm-lang-todo"] .el-pre {
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.simple-todo {
+  display: block;
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+// 主题令牌（亮色默认）
+.simple-todo {
+  --st-radius-window: 12px;
+  --st-radius-btn: 8px;
+  --st-bg-glass: rgba(255, 255, 255, 0.85);
+  --st-border: rgba(0, 0, 0, 0.1);
+  --st-border-input: rgba(0, 0, 0, 0.2);
+  --st-hover: rgba(0, 0, 0, 0.04);
+  --st-card-bg: #ffffff;
+  --st-task-row-h: 36px;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+// 主题令牌（暗色覆盖）
+.theme-dark .simple-todo {
+  --st-bg-glass: rgba(30, 30, 30, 0.85);
+  --st-border: rgba(255, 255, 255, 0.1);
+  --st-border-input: rgba(255, 255, 255, 0.2);
+  --st-hover: rgba(255, 255, 255, 0.06);
+  --st-card-bg: #2a2a2a;
+}

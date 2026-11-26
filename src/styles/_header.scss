@@ -1,0 +1,172 @@
+// ============================================================
+// 顶栏
+// ============================================================
+
+.st-header {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--st-border);
+  background: transparent !important;
+  border-radius: var(--st-radius-window) var(--st-radius-window) 0 0;
+  flex-wrap: nowrap;
+}
+
+// 静态标题（骨架阶段使用；完整可编辑标题见 .st-title-input）
+.st-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-normal);
+  letter-spacing: -0.3px;
+}
+.st-header-stats {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.st-title-input {
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 200px;
+  height: 30px;
+  padding: 0 10px;
+  border: 1px solid var(--st-border-input) !important;
+  border-radius: 8px;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-normal);
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+  letter-spacing: -.3px;
+  box-sizing: border-box;
+}
+.st-title-input:hover { border-color: var(--text-muted) !important; }
+.st-title-input:focus {
+  border-color: var(--interactive-accent) !important;
+  box-shadow: 0 0 0 3px rgba(var(--interactive-accent-rgb), .15);
+}
+.st-title-input::placeholder { color: var(--text-faint); font-weight: 600; }
+
+.st-search-input {
+  flex: 1;
+  min-width: 100px;
+  height: 30px;
+  padding: 0 10px;
+  border: 1px solid var(--st-border-input) !important;
+  border-radius: 8px;
+  background: transparent;
+  font-size: 13px;
+  color: var(--text-normal);
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+  box-sizing: border-box;
+}
+.st-search-input:hover { border-color: var(--text-muted) !important; }
+.st-search-input:focus {
+  border-color: var(--interactive-accent) !important;
+  box-shadow: 0 0 0 3px rgba(var(--interactive-accent-rgb), .15);
+}
+.st-search-input::placeholder { color: var(--text-faint); }
+
+.st-icon-btn {
+  appearance: none !important;
+  width: 30px !important;
+  height: 30px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: transparent !important;
+  border: 1px solid var(--st-border-input) !important;
+  border-radius: 8px !important;
+  color: var(--text-normal) !important;
+  cursor: pointer !important;
+  transition: all .15s ease !important;
+  box-shadow: none !important;
+  flex-shrink: 0 !important;
+  padding: 0 !important;
+  position: relative;
+  box-sizing: border-box;
+}
+.st-icon-btn:hover {
+  background: var(--st-hover) !important;
+  border-color: var(--text-muted) !important;
+}
+.st-icon-btn:active { transform: scale(.94) !important; }
+.st-icon-btn svg.svg-icon, .st-icon-btn svg {
+  width: 18px !important;
+  height: 18px !important;
+  stroke-width: 2 !important;
+  fill: none !important;
+  stroke: currentColor !important;
+  color: inherit !important;
+  display: block !important;
+}
+
+.st-mode-btn.is-active, .st-tab-btn.is-active {
+  background: var(--interactive-accent) !important;
+  border-color: var(--interactive-accent) !important;
+  color: var(--text-on-accent) !important;
+}
+.st-filter-btn.is-active {
+  background: var(--interactive-accent) !important;
+  border-color: var(--interactive-accent) !important;
+  color: var(--text-on-accent) !important;
+}
+.st-filter-count {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 8px;
+  background: var(--text-error);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 16px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.st-add-btn-icon {
+  color: var(--interactive-accent) !important;
+  border-color: var(--interactive-accent) !important;
+}
+.st-add-btn-icon:hover {
+  background: var(--interactive-accent) !important;
+  color: var(--text-on-accent) !important;
+}
+
+// 顶栏 Tab（全部 / 未完成 / 已完成）
+.st-tabs {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+  flex-shrink: 0;
+}
+.st-tab-btn {
+  appearance: none !important;
+  height: 30px !important;
+  padding: 0 12px !important;
+  border: 1px solid var(--st-border-input) !important;
+  border-radius: 8px !important;
+  background: transparent !important;
+  color: var(--text-muted) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  cursor: pointer !important;
+  transition: all .15s ease !important;
+  box-shadow: none !important;
+  box-sizing: border-box;
+}
+.st-tab-btn:hover {
+  color: var(--text-normal) !important;
+  border-color: var(--text-muted) !important;
+}
+// .st-tab-btn.is-active 的高亮已与 .st-mode-btn.is-active 共用规则定义。

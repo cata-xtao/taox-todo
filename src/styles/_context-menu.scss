@@ -1,0 +1,61 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+// ============================================================
+// 右键菜单 / 拖拽幽灵
+// ============================================================
+
+.st-ctx-menu {
+  position: fixed;
+  z-index: $z-ctx-menu;
+  @include glass-panel(10px, 0 4px 20px rgba(0, 0, 0, .15));
+  padding: 6px;
+  min-width: 130px;
+}
+.st-ctx-item {
+  padding: 8px 12px;
+  font-size: 13px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--text-normal);
+  transition: background .1s ease;
+  user-select: none;
+}
+.st-ctx-item:hover { background: var(--st-hover); }
+.st-ctx-item.is-disabled {
+  opacity: .45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+// 带子菜单的父项：右侧显示箭头。
+.st-ctx-item.has-submenu {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.st-ctx-item.has-submenu .st-ctx-chevron {
+  margin-left: auto;
+  opacity: .55;
+  font-size: 15px;
+  line-height: 1;
+}
+.st-ctx-submenu { min-width: 120px; }
+
+.st-drag-ghost {
+  position: fixed;
+  z-index: $z-drag-ghost;
+  pointer-events: none;
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .25);
+  max-width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+body.st-drag-active { cursor: grabbing !important; }
+body.st-drag-active .st-task { cursor: grabbing !important; }

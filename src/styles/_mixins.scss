@@ -1,0 +1,11 @@
+@use "variables" as *;
+
+// 毛玻璃面板：筛选面板 / 右键菜单共用（背景、模糊、边框、圆角、阴影）
+@mixin glass-panel($radius, $shadow) {
+  background: var(--st-bg-glass);
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid var(--st-border);
+  border-radius: $radius;
+  box-shadow: $shadow;
+}

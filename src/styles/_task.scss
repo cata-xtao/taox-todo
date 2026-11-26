@@ -1,0 +1,205 @@
+@use "variables" as *;
+
+// ============================================================
+// 任务行 / 内联添加
+// ============================================================
+
+.st-task {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  transition: background .12s ease, opacity .25s ease;
+  position: relative;
+  cursor: pointer;
+}
+.st-task:hover { background: var(--st-hover); }
+.st-task.is-dragging { opacity: .35; }
+.st-task.st-drop-before::before,
+.st-task.st-drop-after::after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  height: 2px;
+  background: var(--interactive-accent);
+  border-radius: 1px;
+  pointer-events: none;
+}
+.st-task.st-drop-before::before { top: -1px; }
+.st-task.st-drop-after::after { bottom: -1px; }
+
+.st-task-main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: var(--st-task-row-h);
+  padding: 6px 10px;
+}
+
+.st-drag-handle {
+  width: 12px;
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: -1px;
+  color: var(--text-faint);
+  cursor: grab;
+  opacity: 0;
+  transition: opacity .15s ease;
+  user-select: none;
+  flex-shrink: 0;
+  text-align: center;
+}
+.st-task:hover .st-drag-handle { opacity: 1; }
+.st-drag-handle:active { cursor: grabbing; }
+
+.st-prio {
+  width: 3px;
+  height: 14px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.st-prio-high { background: $c-red; }
+.st-prio-med  { background: $c-orange; }
+.st-prio-low  { background: $c-blue; }
+
+.st-check {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid var(--text-faint);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all .2s ease;
+  background: transparent;
+  color: transparent;
+}
+.st-check:hover { border-color: var(--interactive-accent); }
+.st-check svg { width: 12px; height: 12px; stroke-width: 3; }
+.st-task.is-done .st-check {
+  background: var(--interactive-accent);
+  border-color: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+.st-task.is-toggling .st-check {
+  animation: st-check-pop .35s cubic-bezier(.3,1.4,.5,1);
+}
+@keyframes st-check-pop {
+  0% { transform: scale(1); }
+  45% { transform: scale(1.28); }
+  100% { transform: scale(1); }
+}
+
+.st-task-title {
+  flex: 1;
+  font-size: 14px;
+  color: var(--text-normal);
+  line-height: 1.4;
+  word-break: break-word;
+  min-width: 0;
+  transition: color .25s ease, opacity .25s ease;
+  cursor: pointer;
+}
+.st-task.is-done .st-task-title {
+  color: var(--text-muted);
+  text-decoration: line-through;
+  opacity: .55;
+}
+
+.st-task-date {
+  font-size: 11px;
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+  opacity: .8;
+  transition: opacity .15s ease, color .15s ease;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.st-task:hover .st-task-date { opacity: 1; color: var(--text-muted); }
+.st-task.is-done .st-task-date { opacity: .5; }
+
+.st-task-note-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  color: var(--text-faint);
+  cursor: pointer;
+  flex-shrink: 0;
+  border-radius: 4px;
+  transition: all .12s ease;
+}
+.st-task-note-icon:hover { color: var(--text-normal); background: var(--st-hover); }
+.st-task-note-icon svg { width: 12px; height: 12px; }
+
+.st-task-detail {
+  padding: 0 10px 10px 38px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+  line-height: 1.55;
+  word-break: break-word;
+  overflow: hidden;
+}
+.st-task-detail p { margin: 0 0 4px 0; }
+.st-task-detail p:last-child { margin-bottom: 0; }
+.st-task-detail a { color: var(--interactive-accent); text-decoration: underline; }
+.st-task-detail ul, .st-task-detail ol { margin: 2px 0 4px 0; padding-left: 20px; }
+.st-task-detail li { margin: 0; }
+.st-task-detail img {
+  max-width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+  border-radius: 6px;
+  margin: 4px 0;
+  cursor: zoom-in;
+  transition: transform .15s ease, box-shadow .15s ease;
+  display: inline-block;
+  vertical-align: middle;
+}
+.st-task-detail img:hover {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .18);
+  transform: scale(1.01);
+}
+.st-task.is-done .st-task-detail { opacity: .6; }
+
+// 内联添加
+.st-add-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--text-faint);
+  font-size: 13px;
+  transition: background .12s ease, color .12s ease;
+  user-select: none;
+}
+.st-add-row:hover { background: var(--st-hover); color: var(--text-muted); }
+.st-add-icon {
+  font-size: 14px;
+  line-height: 1;
+  width: 14px;
+  text-align: center;
+}
+.st-add-row.is-editing {
+  cursor: default;
+  background: var(--st-hover);
+  padding: 4px 10px;
+}
+.st-inline-input {
+  flex: 1;
+  height: 28px;
+  padding: 0 8px;
+  border: 1px solid var(--interactive-accent);
+  border-radius: 6px;
+  background: transparent;
+  font-size: 13px;
+  color: var(--text-normal);
+  outline: none;
+  font-family: inherit;
+  box-sizing: border-box;
+}

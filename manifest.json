@@ -1,0 +1,9 @@
+{
+  "id": "taox-todo",
+  "name": "taox todo",
+  "version": "1.0.0",
+  "minAppVersion": "1.13.0",
+  "description": "在笔记中以 ```todo 代码块内嵌交互式待办列表，支持分组与子组、优先级、创建/完成日期、拖拽排序、内联编辑与全文搜索，数据以 JSON 保存在代码块内。",
+  "author": "cata",
+  "isDesktopOnly": false
+}

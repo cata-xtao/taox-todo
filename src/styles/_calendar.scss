@@ -1,0 +1,84 @@
+// ============================================================
+// 日历视图
+// ============================================================
+
+.st-cal-wrap {
+  padding: 16px;
+}
+.st-cal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.st-cal-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+.st-cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  text-align: center;
+}
+.st-cal-weekday {
+  font-size: 12px;
+  color: var(--text-muted);
+  padding: 8px 0;
+}
+.st-cal-cell {
+  height: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.1s ease;
+}
+.st-cal-cell:hover {
+  background: var(--st-hover);
+}
+.st-cal-cell.is-other {
+  opacity: 0.3;
+}
+.st-cal-cell.is-selected {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+.st-cal-cell.is-today .st-cal-date {
+  color: var(--interactive-accent);
+  font-weight: 700;
+}
+.st-cal-cell.is-selected .st-cal-date {
+  color: inherit;
+}
+.st-cal-date {
+  font-size: 13px;
+}
+.st-cal-count {
+  font-size: 10px;
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border-radius: 10px;
+  padding: 0 4px;
+  min-width: 14px;
+  text-align: center;
+  margin-top: 2px;
+  line-height: 14px;
+}
+.st-cal-cell.is-selected .st-cal-count {
+  background: var(--text-on-accent);
+  color: var(--interactive-accent);
+}
+.st-cal-selected-tasks {
+  margin-top: 24px;
+  border-top: 1px solid var(--st-border);
+  padding-top: 16px;
+}
+.st-cal-selected-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}

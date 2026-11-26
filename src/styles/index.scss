@@ -1,0 +1,18 @@
+// ============================================================
+// taox todo — 样式入口
+// 按原始层叠顺序 @use 各模块，编译输出到根目录 styles.css。
+// Obsidian 会自动加载插件根目录下的 styles.css，无需在 main.ts 中 import。
+// ============================================================
+
+@use "base";
+@use "layout";
+@use "header";
+@use "group";
+@use "task";
+@use "calendar";
+@use "filter";
+@use "context-menu";
+@use "modal";
+@use "error";
+@use "image-modal";
+@use "responsive";

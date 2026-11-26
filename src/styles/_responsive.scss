@@ -1,0 +1,26 @@
+// ============================================================
+// 移动端适配
+// ============================================================
+
+@media (max-width: 700px) {
+  .st-header { padding: 10px 12px; gap: 6px; flex-wrap: wrap; }
+  .st-title-input { font-size: 15px; max-width: 120px; padding: 0 8px; }
+  .st-search-input { min-width: 80px; }
+  .st-icon-btn { width: 28px !important; height: 28px !important; }
+  .st-body { padding: 4px 6px 6px; }
+  .st-task-main { padding: 6px 8px; gap: 6px; min-height: 34px; }
+  .st-task-title { font-size: 13px; }
+  .st-task-date { font-size: 10px; opacity: .8; }
+  .st-task-detail { padding-left: 32px; font-size: 12px; }
+  .st-task-detail img { max-height: 140px; }
+  .st-drag-handle { opacity: .4; }
+  .st-group-head { padding: 6px 6px; }
+  .st-group-name { font-size: 13.5px; }
+  .st-footer { padding: 8px 12px; font-size: 11px; flex-wrap: wrap; }
+  .st-filter-panel { width: 280px; }
+  .st-modal { padding: 20px !important; }
+  .st-modal .st-row { flex-wrap: wrap; }
+  .st-row-label { min-width: 56px; }
+  .st-cal-wrap { padding: 8px; }
+  .st-cal-cell { height: 40px; }
+}

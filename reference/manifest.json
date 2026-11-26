@@ -1,0 +1,9 @@
+{
+  "id": "simple-todo",
+  "name": "Simple Todo",
+  "version": "1.0.0",
+  "minAppVersion": "1.0.0",
+  "description": "一个完全自包含的待办事项插件，直接以 ```todo 代码块内嵌在笔记中。支持分组与子组、优先级、创建/完成日期元数据、拖拽排序、内联编辑与全文搜索，数据保存在代码块内的 JSON 中，无需外部存储。",
+  "author": "cata",
+  "isDesktopOnly": false
+}
